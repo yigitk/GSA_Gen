@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cwru.selab.cf.AppTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-22T05:07:18" hostname="osboxes" time="0.003">
+  <properties/>
+  <testcase name="testConstructDriver" classname="cwru.selab.cf.AppTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
