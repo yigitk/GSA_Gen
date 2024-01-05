@@ -70,11 +70,11 @@ public class StructuredDataCollector {
         String version = row[5];
         Double value;
 		
-        if (row[6].equals("true"))
+        if ("true".equals(row[6]))
           value = 1.0;
-        else if (row[6].equals("false"))
+        else if ("false".equals(row[6]))
           value = 0.0;
-        else if (row[6].equalsIgnoreCase("null"))
+        else if ("null".equalsIgnoreCase(row[6]))
 		  value=Double.POSITIVE_INFINITY;
 	    else if (row[6].contains("/")){
 			String[] fract = row[6].split("/");

@@ -24,7 +24,7 @@ public class StructuredDataCollector {
       int numExecutions = 0;
       while (line != null) {
 
-        if (line.equals("*** new execution ***")) {
+        if ("*** new execution ***".equals(line)) {
           HashMap<String, Boolean> variableVersionValueArrayChecklist = new HashMap<>();
           for (String variable : variableVersionValueArrayMap.keySet()) {
             variableVersionValueArrayChecklist.put(variable, false);
@@ -60,9 +60,9 @@ public class StructuredDataCollector {
         String variable = row[4];
         String version = row[5];
         Double value;
-        if (row[6].equals("true"))
+        if ("true".equals(row[6]))
           value = 1.0;
-        else if (row[6].equals("false"))
+        else if ("false".equals(row[6]))
           value = 0.0;
         else
           value = Double.parseDouble(row[6]);

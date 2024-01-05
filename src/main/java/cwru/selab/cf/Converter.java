@@ -249,8 +249,8 @@ public class Converter extends Java8BaseListener {
 			return;
 		String varName = tokens.getText(ctx.variableDeclaratorId());
 		String varType = tokens.getText(ctx.unannType());
-		if(varType.equals("String") || varType.equals("int") || varType.equals("double") || varType.equals("short") || varType.equals("long")
-				|| varType.equals("char") || varType.equals("float") ||varType.equals("boolean")) {
+		if("String".equals(varType) || "int".equals(varType) || "double".equals(varType) || "short".equals(varType) || "long".equals(varType)
+				|| "char".equals(varType) || "float".equals(varType) ||"boolean".equals(varType)) {
 			methodParameters.add(varName);
 			if (!variableSubscripts.containsKey(varName))
 				variableSubscripts.put(varName, -1);
@@ -802,7 +802,7 @@ public class Converter extends Java8BaseListener {
 				expressionString += token.getText() + " ";
 			}
 			// Add breaking if statement equivalent to negation of original predicate
-			if(!expressionString.trim().equals("true")){
+			if(!"true".equals(expressionString.trim())){
 			
 			rewriter.insertAfter(blockContextStart, "if (!(" + expressionString + ")) {break;}");
 			
@@ -899,7 +899,7 @@ public class Converter extends Java8BaseListener {
 			}
 
 			// Add breaking if statement equivalent to negation of original predicate
-			if(!expressionString.trim().equals("true")){
+			if(!"true".equals(expressionString.trim())){
 			
 			rewriter.insertAfter(blockContextStart, "if (!(" + expressionString + ")) {break;}");
 			
@@ -1041,7 +1041,7 @@ public class Converter extends Java8BaseListener {
 					causalMap.put(variable + "_" + variableSubscripts.get(variable), new HashSet<String>());
 					causalMap.get(variable + "_" + variableSubscripts.get(variable)).addAll(confounders);
 				}
-				if (mergeVar.equals("determinant_2"))
+				if ("determinant_2".equals(mergeVar))
 					System.out.println(causalMap);
 
 
@@ -1478,7 +1478,7 @@ public class Converter extends Java8BaseListener {
 				if (mergeVariables.containsKey(variable)) {
 					causalMap.get(mergeVariables.get(variable)).add(variable + "_" + variableSubscripts.get(variable));
 					String mergeVar = variable + "_" + variableSubscripts.get(variable);
-					if (mergeVar.equals("determinant_2"))
+					if ("determinant_2".equals(mergeVar))
 						System.out.println("CHANGE");
 				}
 					}
