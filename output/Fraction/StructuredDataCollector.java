@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
@@ -19,7 +20,7 @@ public class StructuredDataCollector {
     try {
       // Change name of data file accordingly
       reader = new BufferedReader(new FileReader(filePath));
-      String line = reader.readLine();
+      String line = BoundedLineReader.readLine(reader, 5_000_000);
       HashMap<String, String> variableVersionValueMap = new HashMap<>();
       int numExecutions = 0;
       while (line != null) {
@@ -47,7 +48,7 @@ public class StructuredDataCollector {
             }
           }
           variableVersionValueMap.clear();
-          line = reader.readLine();
+          line = BoundedLineReader.readLine(reader, 5_000_000);
           numExecutions++;
           continue;
         }
@@ -72,7 +73,7 @@ public class StructuredDataCollector {
 
         variableVersionValueMap.put(variable + "_" + version, Double.toString(value));
         // read next line
-        line = reader.readLine();
+        line = BoundedLineReader.readLine(reader, 5_000_000);
       }
       reader.close();
 
