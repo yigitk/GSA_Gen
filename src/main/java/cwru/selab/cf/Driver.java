@@ -57,10 +57,8 @@ public class Driver {
 
     walker.walk(converter, tree);
     String formattedSource = "";
-    BufferedWriter writer = new BufferedWriter(
-        new FileWriter("output/" + fileNameWithOutExt + "/" + fileNameWithOutExt + ".java"));
-    BufferedWriter causalMapWriter = new BufferedWriter(
-        new FileWriter("output/" + fileNameWithOutExt + "/" + "CausalMap.txt"));
+    BufferedWriter writer = Files.newBufferedWriter("output/" + fileNameWithOutExt + "/" + fileNameWithOutExt + ".java".toPath());
+    BufferedWriter causalMapWriter = Files.newBufferedWriter("output/" + fileNameWithOutExt + "/" + "CausalMap.txt".toPath());
 
     try {
       formattedSource = new Formatter().formatSource(rewriter.getText());
