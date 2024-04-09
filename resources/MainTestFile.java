@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -78,7 +79,7 @@ public class MainTestFile {
     try {
       // Change name of data file accordingly
       reader = new BufferedReader(new FileReader("causalMap.txt"));
-      String line = reader.readLine();
+      String line = BoundedLineReader.readLine(reader, 5_000_000);
       while (line != null) {
         String[] row = line.split(",");
         String var = row[0];
@@ -90,7 +91,7 @@ public class MainTestFile {
           }
         }
 
-        line = reader.readLine();
+        line = BoundedLineReader.readLine(reader, 5_000_000);
       }
       reader.close();
       return causalMap;
