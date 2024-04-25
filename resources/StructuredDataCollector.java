@@ -60,9 +60,9 @@ public class StructuredDataCollector {
         String variable = row[4];
         String version = row[5];
         Double value;
-        if (row[6].equals("true"))
+        if ("true".equals(row[6]))
           value = 1.0;
-        else if (row[6].equals("false"))
+        else if ("false".equals(row[6]))
           value = 0.0;
         else
           value = Double.parseDouble(row[6]);
